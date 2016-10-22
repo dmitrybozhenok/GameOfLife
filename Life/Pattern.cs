@@ -62,7 +62,8 @@ namespace DD.Life
 
         public override string ToString()
         {
-            return $"";
+            // TODO: Improve string representation (2016/10/22, Dmitry Nelyubin)
+            return base.ToString();
         }
     }
 }

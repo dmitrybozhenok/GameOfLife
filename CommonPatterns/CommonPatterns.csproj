@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common.cs" />
+    <Compile Include="Spaceships.cs" />
+    <Compile Include="Oscillators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StillLifes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Life\Life.csproj">
