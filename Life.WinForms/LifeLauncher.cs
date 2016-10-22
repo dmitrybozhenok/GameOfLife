@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using DD.CommonPatterns;
@@ -7,16 +8,21 @@ namespace DD.Life.WinForms
 {
     public sealed partial class LifeLauncher : Form
     {
-        private Grid _grid;
-        private readonly int _xRange = 16;
-        private readonly int _yRange = 16;
+        private int XRange => (int)txtWidth.Value;
+        private int YRange => (int)txtHeight.Value;
+        private int XOffset => (int)txtXOffset.Value;
+        private int YOffset => (int)txtYOffset.Value;
 
+        private Grid _grid;
         private readonly string _appName;
+
+        private PatternInfo SelectedPattern => (PatternInfo)cmbPatterns.SelectedItem;
 
         public LifeLauncher()
         {
             InitializeComponent();
 
+            Size = new Size(800, 600);
             txtBody.Text = null;
 
             _appName = Text;
@@ -54,37 +60,49 @@ namespace DD.Life.WinForms
             }
         }
 
-        private void cmbPatterns_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void OnPatternSelectionChanged(object sender, System.EventArgs e)
         {
-            EhlStop();
+            OnStopClick();
 
-            var selectedPattern = (PatternInfo)cmbPatterns.SelectedItem;
+            var selectedPattern = SelectedPattern;
             txtBody.Text = selectedPattern.Value;
 
             // ReSharper disable once LocalizableElement
             Text = $"{_appName} ({selectedPattern.FullName})";
 
-            var pattern = Pattern.Parse(selectedPattern.Value, _xRange, _yRange);
-            _grid = new Grid(_xRange, _yRange, pattern);
+            RefreshGrid(selectedPattern);
         }
 
-        private void EhlStart(object sender, System.EventArgs e)
+        private void RefreshGrid(PatternInfo selectedPattern)
         {
+            var offset = new Point(XOffset, YOffset);
+            var pattern = Pattern.Parse(selectedPattern.Value, XRange, YRange, offset);
+            _grid = new Grid(XRange, YRange, pattern);
+        }
+
+        private void OnStartClick(object sender, System.EventArgs e)
+        {
+            RefreshGrid(SelectedPattern);
             txtBody.Text = _grid.ToString();
 
             tmrReevaluation.Start();
         }
 
-        private void EhlStop(object sender = null, System.EventArgs e = null)
+        private void OnStopClick(object sender = null, System.EventArgs e = null)
         {
             tmrReevaluation.Stop();
         }
 
-        private void tmrReevaluation_Tick(object sender, System.EventArgs e)
+        private void OnReevaluationTick(object sender, System.EventArgs e)
         {
             _grid.Reevaluate();
 
             txtBody.Text = _grid.ToString();
+        }
+
+        private void OnTimeoutChanged(object sender, System.EventArgs e)
+        {
+            tmrReevaluation.Interval = (int)txtTimeout.Value;
         }
     }
 }
