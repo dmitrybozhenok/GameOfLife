@@ -70,6 +70,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonPatterns\CommonPatterns.csproj">
+      <Project>{231cb5ec-f60a-490a-ba27-46d3a3d09bfb}</Project>
+      <Name>CommonPatterns</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Life\Life.csproj">
       <Project>{4bb26210-1c3e-4743-a9cc-3e8de97dd8b5}</Project>
       <Name>Life</Name>

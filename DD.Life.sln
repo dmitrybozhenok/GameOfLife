@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Life", "Life\Life.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Life.Test", "Life.Test\Life.Test.csproj", "{7AB27174-F74B-4E5E-AAD0-9799CF4849A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonPatterns", "CommonPatterns\CommonPatterns.csproj", "{231CB5EC-F60A-490A-BA27-46D3A3D09BFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7AB27174-F74B-4E5E-AAD0-9799CF4849A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AB27174-F74B-4E5E-AAD0-9799CF4849A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AB27174-F74B-4E5E-AAD0-9799CF4849A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{231CB5EC-F60A-490A-BA27-46D3A3D09BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{231CB5EC-F60A-490A-BA27-46D3A3D09BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{231CB5EC-F60A-490A-BA27-46D3A3D09BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{231CB5EC-F60A-490A-BA27-46D3A3D09BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
