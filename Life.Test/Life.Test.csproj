@@ -59,6 +59,9 @@
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PointTest.cs" />
+    <Compile Include="Demo.cs" />
+    <Compile Include="GeneralExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\TestAppender.cs" />
   </ItemGroup>
