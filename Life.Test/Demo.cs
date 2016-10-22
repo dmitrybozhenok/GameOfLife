@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DD.CommonPatterns;
 using NUnit.Framework;
 using static DD.CommonPatterns.StillLifes;
 using static DD.CommonPatterns.Oscillators;
@@ -8,6 +9,7 @@ using static DD.CommonPatterns.Spaceships;
 
 namespace DD.Life.Test
 {
+    [Explicit("This is a console-based demo")]
     [TestFixture]
     public class Demo
     {
@@ -16,31 +18,31 @@ namespace DD.Life.Test
         [TestCase(0, 0)]
         [TestCase(1, 1)]
         [TestCase(-2, -2)]
-        public void Blinker(int dx, int dy)
+        public void RunBlinker(int dx, int dy)
         {
             const int width = 5;
             const int height = 5;
-            var blinker = Pattern.Parse(BlinkerPattern, width, height, new Point(dx, dy));
+            var blinker = Pattern.Parse(Blinker, width, height, new Point(dx, dy));
             Execute(width, height, blinker, 4);
         }
 
         [TestCase(0, 0)]
         [TestCase(-2, -2)]
         [TestCase(2, 2)]
-        public void Boat(int dx, int dy)
+        public void RunBoat(int dx, int dy)
         {
             const int height = 5;
             const int width = 5;
-            var seed = Pattern.Parse(BoatPattern, width, height, new Point(dx, dy));
+            var seed = Pattern.Parse(Boat, width, height, new Point(dx, dy));
             Execute(height, width, seed, 3);
         }
 
         [Test]
-        public void Glider()
+        public void RunGlider()
         {
             const int height = 8;
             const int width = 8;
-            var seed = Pattern.Parse(GliderPattern, width, height, new Point(0, 0));
+            var seed = Pattern.Parse(Glider, width, height, new Point(0, 0));
             Execute(height, width, seed, 10);
         }
 
