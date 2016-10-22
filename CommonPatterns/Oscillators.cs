@@ -2,6 +2,14 @@
 {
     public static class Oscillators
     {
-        public const string BlinkerPattern = @"***";
+        public const string Blinker = @"***";
+        public const string Toad = @"
+ ***
+***";
+        public const string Beacon = @"
+**
+**
+  **
+  **";
     }
 }

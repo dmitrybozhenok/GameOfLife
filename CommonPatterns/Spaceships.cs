@@ -2,9 +2,14 @@
 {
     public static class Spaceships
     {
-        public const string GliderPattern = @"
+        public const string Glider = @"
   *
 * *
  **";
+        public const string LightWeightSpaceship = @"
+*  *
+    *
+*   *
+ ****";
     }
 }
